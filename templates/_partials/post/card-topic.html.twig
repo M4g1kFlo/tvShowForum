@@ -1,1 +1,11 @@
-{{ topic.title}}
+<article style="cursor:pointer" class="w-100 topic-container">
+    <div class="w-100 flex space-between flex-end">
+        <div>
+            <div class="title-card">{{ topic.title}}</div>
+            <div>{{topic.author.pseudo}}</div>
+        </div>
+        <div class="date-card">
+            {{topic.pubished_date|format_datetime('short','short',locale='en')}}
+        </div>
+    </div>
+</article>

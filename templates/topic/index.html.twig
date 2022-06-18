@@ -6,9 +6,9 @@
     <h1>Topics</h1>
     <h2>Ils son tous là</h2>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
+    <section class="flex home-list-cards">
         {% for topic in topics %}
             {% include '_partials/post/card-topic.html.twig' with { topic: topic } only %}
         {% endfor %}
-    </div>
+    </section>
 {% endblock %}

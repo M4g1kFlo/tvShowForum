@@ -67,12 +67,12 @@ class Topic
         return $this;
     }
 
-    public function getPubishedDate(): ?\DateTimeInterface
+    public function getPubished_Date(): ?\DateTimeInterface
     {
         return $this->pubished_date;
     }
 
-    public function setPubishedDate(\DateTimeInterface $pubished_date): self
+    public function setPubished_Date(\DateTimeInterface $pubished_date): self
     {
         $this->pubished_date = $pubished_date;
 
