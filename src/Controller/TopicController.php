@@ -17,9 +17,16 @@ class TopicController extends AbstractController
             'topics' => $topicRepo->findBy(
                 [],
                 ['pubished_date' => 'desc'],
-                12,
+                120,
                 0
             ),
+        ]);
+    }
+
+    #[Route('/{slug}', name: 'topic_id')]
+    public function topicView(TopicRepository $topicRepo,string $slug): Response{
+        return $this->render('topic/topic.html.twig', [
+            'topic' => $topicRepo->findOneBy(["slug"=>$slug]),
         ]);
     }
 }

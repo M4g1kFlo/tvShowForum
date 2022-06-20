@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les topics{% endblock %}
+
+{% block body %}
+    <section class="details-container">
+        <div class="details-title">{{topic.title}}</div>
+        <p class="details-text">
+            {{topic.content}}
+        </p>
+    
+    </section>
+
+    <div class="flex container-comments">
+        {% for comment in topic.comments %}
+            {% include '_partials/post/comment.html.twig' with { comment: comment } only %}
+        {% endfor %}
+    </div>
+{% endblock %}

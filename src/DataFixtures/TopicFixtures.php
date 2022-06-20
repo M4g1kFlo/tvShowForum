@@ -17,7 +17,7 @@ class TopicFixtures extends Fixture implements DependentFixtureInterface
 
     private Generator $faker;
 
-    public function __construct()
+    public function __construct(private SluggerInterface $slugger)
     {
         $this->faker = Factory::create('fr_FR');
     }
@@ -35,8 +35,9 @@ class TopicFixtures extends Fixture implements DependentFixtureInterface
 
             $post = (new Topic())
                 ->setTitle($title)
+                ->setSlug($this->slugger->slug($title)->lower())
                 ->setPubished_Date($this->faker->dateTime())
-                ->setContent($this->faker->realText())
+                ->setContent($this->faker->realText(1000))
                 ->setAuthor($randomUser);
 
             $manager->persist($post);
