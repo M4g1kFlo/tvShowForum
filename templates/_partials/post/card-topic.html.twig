@@ -1,8 +1,9 @@
-<article style="cursor:pointer" class="w-100 topic-container">
+<article class="w-100 topic-container">
     <a href="{{ path('topic_id', {slug: topic.slug}) }}" class="btn btn-sm btn-outline-secondary">
         <div class="w-100 flex space-between flex-end">
             <div>
-                <div class="title-card">{{ topic.title}}</div>
+                <div class="title-card mb">{{ topic.title}}</div>
+                <div class="cat-card mb">{{ topic.category.title}}</div>
                 <div>{{topic.author.pseudo}}</div>
             </div>
             <div class="date-card">

@@ -35,6 +35,9 @@ class Topic
     #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Comment::class)]
     private $comments;
 
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'posts')]
+    private $category;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -119,6 +122,18 @@ class Topic
                 $comment->setTopic(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

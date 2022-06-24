@@ -31,6 +31,10 @@ class TopicFixtures extends Fixture implements DependentFixtureInterface
             /** @var User $randomUser */
             $randomUser = $this->getReference('user-' . $randomUserId);
 
+            $randomCategoryId = $this->faker->numberBetween(0, 4);
+            /** @var Category $randomCategory */
+            $randomCategory = $this->getReference('category-' . $randomCategoryId);
+
             $title = $this->faker->sentence(10);
 
             $post = (new Topic())
@@ -38,6 +42,7 @@ class TopicFixtures extends Fixture implements DependentFixtureInterface
                 ->setSlug($this->slugger->slug($title)->lower())
                 ->setPubished_Date($this->faker->dateTime())
                 ->setContent($this->faker->realText(1000))
+                ->setCategory($randomCategory)
                 ->setAuthor($randomUser);
 
             $manager->persist($post);
@@ -51,6 +56,7 @@ class TopicFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             UserFixtures::class,
+            CategoryFixtures::class,
         ];
     }
 

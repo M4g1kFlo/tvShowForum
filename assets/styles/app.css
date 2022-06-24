@@ -12,6 +12,9 @@ a {
 .flex {
     display: flex;
 }
+.space-between {
+    justify-content: space-between;
+}
 .space-between{
     justify-content: space-between;
 }
@@ -20,6 +23,9 @@ a {
 }
 .flex-end {
     align-items: flex-end;
+}
+.mb {
+    margin-bottom: 10px;
 }
 /*************************************/
 
@@ -32,8 +38,6 @@ a {
 }
 
 .topic-container {
-    height: 60px;
-    max-height: 60px;
     background-color: #212121;
     border-radius: 20px;
     padding: 10px;
@@ -41,11 +45,19 @@ a {
 .title-card {
     font-size: 1.5em;
     font-weight: 500;
-    margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 850px;
+}
+
+.cat-card {
+    font-size: .9em;
+    color: white;
+    background-color: black;
+    width: max-content;
+    border-radius: 13px;
+    padding-inline: 10px;
 }
 
 .date-card{
@@ -64,7 +76,6 @@ a {
 .details-title {
     font-size: 2em;
     font-weight: 500;
-    margin-bottom: 10px;
 }
 
 .details-text {
@@ -82,8 +93,8 @@ a {
 }
 
 .card-comment {
-    height: 60px;
-    max-height: 60px;
+    /* height: 60px;
+    max-height: 60px; */
     background-color: #212121;
     border-radius: 20px;
     padding: 10px;

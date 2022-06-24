@@ -1,1 +1,13 @@
-<div class="card-comment">{{comment.content}}</div>
+<div class="card-comment">
+    <div class="mb">
+        {{comment.content}}
+    </div>
+    <div class="date-card flex space-between">
+        <div>
+            {{comment.author.pseudo}}
+        </div>
+        <div>
+            {{comment.date|format_datetime('short','short',locale='en')}}
+        </div>
+    </div>
+</div>

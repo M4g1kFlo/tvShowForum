@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tous les topics{% endblock %}
+{% block title %}{{ category.title }}{% endblock %}
 
 {% block body %}
-    <h1>Topics</h1>
-    <h2>Ils sont tous là</h2>
-
-    <section class="flex home-list-cards">
+    <h1>Blog</h1>
+    <h2>Catégorie / {{ category.title }}</h2>
+    <div class="flex home-list-cards">
         {% for topic in topics %}
             {% include '_partials/post/card-topic.html.twig' with { topic: topic } only %}
         {% endfor %}
-    </section>
+    </div>
 {% endblock %}
