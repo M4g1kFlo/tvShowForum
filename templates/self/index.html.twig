@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification{% endblock %}
+
+{% block body %}
+    <h1>Modifier mes infos</h1>
+
+    {{ form_start(userForm) }}
+        <div class="flex gap form-contain">
+            <div class="form-div">{{ form_row(userForm.first_name) }}</div>
+            <div class="form-div">{{ form_row(userForm.last_name) }}</div>
+            <div class="form-div">{{ form_row(userForm.adress) }}</div>
+            <div class="form-div">{{ form_row(userForm.zip_code) }}</div>
+            <div class="form-div">{{ form_row(userForm.city) }}</div>
+            <div class="form-div">{{ form_row(userForm.mail) }}</div>
+            <div class="form-div">{{ form_row(userForm.phone) }}</div>
+            <div class="form-div">{{ form_row(userForm.pseudo) }}</div>
+
+            
+            <button style="cursor: pointer;" type="submit" class="btn-submit">Enregistrer</button>
+        </div>
+    {{ form_end(userForm) }}
+
+    <a href="{{ path('self-close') }}" class="">
+        Fermer le compte
+    </a>
+{% endblock %}
