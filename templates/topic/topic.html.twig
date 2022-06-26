@@ -9,7 +9,29 @@
             {{topic.content}}
         </p>
     
+    {% if app.user.pseudo == topic.author.pseudo and topic.isClosed == false %}
+        <a href="{{ path('topic-close', {slug: topic.slug}) }}" class="">
+            Fermer le topic
+        </a>
+    {% endif %}
     </section>
+
+
+    {% if app.user and topic.isClosed == false %}
+    {{ form_start(commentForm) }}
+        <div class="flex gap form-contain mb">
+            <div class="form-div">
+                {{ form_row(commentForm.content) }}
+
+                <button style="cursor: pointer" type="submit" class="btn-submit-comment">Commenter</button>
+            </div>
+            
+        </div>
+
+    {{ form_end(commentForm) }}
+    {% endif %}
+
+    
 
     <div class="flex container-comments">
         {% for comment in topic.comments %}

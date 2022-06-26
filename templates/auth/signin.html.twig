@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    {{ form_start(signinForm) }}
+        <div class="flex gap form-contain">
+            <div class="form-div">{{ form_row(signinForm.first_name) }}</div>
+            <div class="form-div">{{ form_row(signinForm.last_name) }}</div>
+            <div class="form-div">{{ form_row(signinForm.adress) }}</div>
+            <div class="form-div">{{ form_row(signinForm.zip_code) }}</div>
+            <div class="form-div">{{ form_row(signinForm.city) }}</div>
+            <div class="form-div">{{ form_row(signinForm.mail) }}</div>
+            <div class="form-div">{{ form_row(signinForm.phone) }}</div>
+            <div class="form-div">{{ form_row(signinForm.pseudo) }}</div>
+            <div class="form-div">{{ form_row(signinForm.password) }}</div>
+            
+            <button type="submit" class="btn-submit">S'inscrire</button>
+        </div>
+
+    {{ form_end(signinForm) }}
+{% endblock %}

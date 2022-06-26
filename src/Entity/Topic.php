@@ -38,6 +38,9 @@ class Topic
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'posts')]
     private $category;
 
+    #[ORM\Column(type: 'boolean')]
+    private $closed;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -134,6 +137,18 @@ class Topic
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function isClosed(): ?bool
+    {
+        return $this->closed;
+    }
+
+    public function setClosed(bool $closed): self
+    {
+        $this->closed = $closed;
 
         return $this;
     }

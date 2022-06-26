@@ -15,8 +15,8 @@ a {
 .space-between {
     justify-content: space-between;
 }
-.space-between{
-    justify-content: space-between;
+.gap {
+    gap: 10px;
 }
 .w-100 {
     width: 100%;
@@ -26,6 +26,10 @@ a {
 }
 .mb {
     margin-bottom: 10px;
+}
+
+.mt {
+    margin-top: 10px;
 }
 /*************************************/
 
@@ -100,5 +104,61 @@ a {
     padding: 10px;
 }
 
+.btn-submit-comment {
+    background-color: #212121;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 20px;
+    border: none;
+    width: fit-content;
+    padding: 10px;
+}
 
+
+/*************************************/
+
+/************* Header ****************/
+.header {
+    background-color: #212121;
+    padding: 20px;
+}
+/*************************************/
+
+
+/************ Form login *************/
+.form-div {
+    background-color: #212121;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.form-contain {
+    flex-direction: column;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.form-control {
+    background-color: #121212;
+    border-radius: 20px;
+    border: none;
+    height: 25px;
+    color: white;
+    font-size: 1.2em;
+    width: 89%;
+}
+
+.required {
+    min-width: 100px;
+    display: inline-block;
+    font-size: 1.2em;
+}
+
+.btn-submit {
+    background-color: #212121;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 20px;
+    border: none;
+}
 /*************************************/

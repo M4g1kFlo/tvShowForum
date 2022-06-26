@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau topic</h1>
+
+    {{ form_start(topicForm) }}
+        <div class="flex gap form-contain">
+            <div class="form-div">{{ form_row(topicForm.title) }}</div>
+            <div class="form-div">{{ form_row(topicForm.content) }}</div>
+            <div class="form-div">{{ form_row(topicForm.category) }}</div>
+            
+            <button style="cursor:pointer" type="submit" class="btn-submit">S'inscrire</button>
+        </div>
+
+    {{ form_end(topicForm) }}
+{% endblock %}
