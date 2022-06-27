@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter ou modifier{% endblock %}
+
+{% block body %}
+    <h1>Ajout et modfication</h1>
+    <h2>Ajouter une nouvelle catégorie ou la modifier</h2>
+    <div class="flex home-list-cards">
+
+    {{ form_start(catForm) }}
+        <div class="flex gap form-contain mb">
+            <div class="form-div">
+                {{ form_row(catForm.title) }}
+            </div>
+            <button style="cursor: pointer" type="submit" class="btn-submit">Enregistrer</button>
+        </div>
+    {{ form_end(catForm) }}
+    </div>
+{% endblock %}

@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 #[Route('/topic', name: 'topic-')]
 class TopicController extends AbstractController
@@ -84,11 +85,11 @@ class TopicController extends AbstractController
             $comment->setAuthor($this->getUser());
             $comment->setDate(new DateTimeImmutable());
             $comment->setTopic($topic);
+            $comment->setHidden(false);
 
             $entityManager->persist($comment);
             $entityManager->flush();
         }
-
 
         return $this->render('topic/topic.html.twig', [
             'topic' => $topicRepo->findOneBy(["slug"=>$slug]),
@@ -96,14 +97,21 @@ class TopicController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMINISTRATOR')]
     #[Route('/{slug}/close', name: 'close')]
     public function topicClose(EntityManagerInterface $entityManager,Topic $topic): Response{
-        if ($response = $this->checkRole('ROLE_USER')) {
-            return $response;
-        }
         $topic->setClosed(true);
         $entityManager->flush();
 
         return $this->redirectToRoute('topic-id',['slug'=>$topic->getSlug()]);
+    }
+
+    #[IsGranted('ROLE_ADMINISTRATOR')]
+    #[Route('/{id}/hide', name: 'comment-close')]
+    public function commentHide(EntityManagerInterface $entityManager,Comment $comment,TopicRepository $topicRepo): Response{
+        $comment->setHidden(true);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('topic-id',['slug'=>$comment->getTopic()->getSlug()]);
     }
 }

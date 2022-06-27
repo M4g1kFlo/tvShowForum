@@ -14,8 +14,12 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use Symfony\Component\Security\Core\User\UserCheckerInterface;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAccountStatusException;
+use App\Entity\User;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class UserAuthenticator extends AbstractLoginFormAuthenticator
+class UserAuthenticator extends AbstractLoginFormAuthenticator implements UserCheckerInterface
 {
     use TargetPathTrait;
 
@@ -55,5 +59,22 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
     protected function getLoginUrl(Request $request): string
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+    }
+
+    public function checkPreAuth(UserInterface $user): void
+    {
+        if (!$user instanceof User) {
+            return;
+        }
+
+        if ($user->isActivated()) {
+            // the message passed to this exception is meant to be displayed to the user
+            throw new CustomUserMessageAccountStatusException('Your user account no longer exists.');
+        }
+    }
+
+    public function checkPostAuth(UserInterface $user): void
+    {
+       
     }
 }

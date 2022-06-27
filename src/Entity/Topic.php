@@ -33,6 +33,7 @@ class Topic
     private $pubished_date;
 
     #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Comment::class)]
+    #[ORM\OrderBy(value : ["date"=>"DESC"])]
     private $comments;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'posts')]

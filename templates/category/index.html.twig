@@ -6,6 +6,12 @@
     <h1>Catégories</h1>
     <h2>Elles sont toutes là</h2>
 
+    {% if 'ROLE_ADMINISTRATOR' in app.user.roles %}
+        <a href="{{ path('category-add') }}" class="">
+            Nouveaux
+        </a>
+    {% endif %}
+
     <section class="flex home-list-cards">
         {% for category in categories %}
             {% include '_partials/category/category.html.twig' with { category: category } only %}

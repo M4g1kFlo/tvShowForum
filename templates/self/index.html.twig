@@ -18,10 +18,11 @@
 
             
             <button style="cursor: pointer;" type="submit" class="btn-submit">Enregistrer</button>
+        <a href="{{ path('self-close') }}" class="close-acc">
+            Fermer le compte
+        </a>
         </div>
     {{ form_end(userForm) }}
 
-    <a href="{{ path('self-close') }}" class="">
-        Fermer le compte
-    </a>
+
 {% endblock %}

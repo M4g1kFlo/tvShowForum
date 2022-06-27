@@ -160,5 +160,18 @@ a {
     font-size: 1.5em;
     border-radius: 20px;
     border: none;
+    padding-block: 10px;
+}
+/*************************************/
+
+/************** Self *****************/
+.close-acc{
+    background-color: #212121;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    text-align: center;
 }
 /*************************************/

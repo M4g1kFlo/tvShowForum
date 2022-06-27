@@ -19,13 +19,16 @@ class Comment
     #[ORM\Column(type: 'string', length: 255)]
     private $content;
 
-    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'comments')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
     private $author;
 
-    #[ORM\ManyToOne(targetEntity: topic::class, inversedBy: 'comments')]
+    #[ORM\ManyToOne(targetEntity: Topic::class, inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
     private $topic;
+
+    #[ORM\Column(type: 'boolean')]
+    private $hidden;
 
     public function getId(): ?int
     {
@@ -76,6 +79,18 @@ class Comment
     public function setTopic(?topic $topic): self
     {
         $this->topic = $topic;
+
+        return $this;
+    }
+
+    public function isHidden(): ?bool
+    {
+        return $this->hidden;
+    }
+
+    public function setHidden(bool $hidden): self
+    {
+        $this->hidden = $hidden;
 
         return $this;
     }

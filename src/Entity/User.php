@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;use Symfony\Component\Security\Core\Exception\CustomUserMessageAccountStatusException;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -186,6 +186,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
+    }
+
+    public function checkPreAuth(UserInterface $user): void
+    {
+        if (!$user instanceof User) {
+            return;
+        }
+
+        if ($user->isActivated()) {
+            // the message passed to this exception is meant to be displayed to the user
+            throw new CustomUserMessageAccountStatusException('Your user account no longer exists.');
+        }
+    }
+
+    public function checkPostAuth(UserInterface $user): void
+    {
+       
     }
 
     public function setRoles(array $roles): self

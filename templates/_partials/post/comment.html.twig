@@ -1,6 +1,10 @@
-<div class="card-comment">
-    <div class="mb">
-        {{comment.content}}
+{% if comment.hidden == false %}
+    <div class="card-comment">
+    <div class="flex space-between mb">
+        <div>{{comment.content}}</div>
+        {% if 'ROLE_ADMINISTRATOR' in app.user.roles %}
+            <a href="{{ path('topic-comment-close', {id: comment.id}) }}">Supprimer</a>
+        {% endif %}
     </div>
     <div class="date-card flex space-between">
         <div>
@@ -11,3 +15,4 @@
         </div>
     </div>
 </div>
+{% endif %}
