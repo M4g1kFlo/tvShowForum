@@ -36,7 +36,7 @@ a {
 /*************** Topic **************/
 .home-list-cards{
     gap: 20px;
-    width: 1000px;
+    max-width: 1000px;
     margin: 0 auto;
     flex-direction: column;
 }
@@ -52,7 +52,7 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 850px;
+    width: 100%;
 }
 
 .cat-card {
@@ -120,7 +120,14 @@ a {
 /************* Header ****************/
 .header {
     background-color: #212121;
-    padding: 20px;
+    padding: 15px;
+    align-items: center;
+}
+
+.header-button {
+    background-color: #121212;
+    padding: 5px;
+    border-radius: 5px;
 }
 /*************************************/
 
@@ -173,5 +180,42 @@ a {
     border: none;
     padding: 10px;
     text-align: center;
+}
+/*************************************/
+
+/************** Admin ****************/
+.users-container { 
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.user-container { 
+    border-radius: 20px;
+    border: gray solid 2px;
+    min-width: 225px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #212121;
+}
+
+.user-pseudo {
+    font-size: 1.2em;
+}
+
+.user-name {
+    color: gray;
+}
+
+.user-button {
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+}
+.brown {
+    background-color: brown;
+}
+
+.blue {
+    background-color: royalblue;
 }
 /*************************************/

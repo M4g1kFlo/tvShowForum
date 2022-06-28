@@ -1,0 +1,15 @@
+<div class="user-container">
+    <div class="user-pseudo">
+        {{ user.pseudo }}
+    </div>
+    <p class="user-name">
+        {{ user.firstname }} {{ user.lastname }}
+    </p>
+    <a href="{{ path('admin-user', {id: user.id}) }}" class="user-button {{ user.activated ? 'brown' :'blue'}}">
+        {% if user.activated  %}
+            Bannir
+        {% else %}
+            Réhabiliter
+        {% endif %}
+    </a>
+</div>

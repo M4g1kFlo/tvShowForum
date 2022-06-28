@@ -1,7 +1,7 @@
-<article class="w-100 topic-container">
-    <a href="{{ path('topic-id', {slug: topic.slug}) }}" class="btn btn-sm btn-outline-secondary">
+<article class="topic-container">
+    <a href="{{ path('topic-id', {slug: topic.slug}) }}" class="w-100">
         <div class="w-100 flex space-between flex-end">
-            <div>
+            <div style="width:81%">
                 <div class="title-card mb">{{ topic.title}}</div>
                 <div class="cat-card mb">{{ topic.category.title}}</div>
                 <div>{{topic.author.pseudo}}</div>

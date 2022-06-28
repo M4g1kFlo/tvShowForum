@@ -1,26 +1,24 @@
 <header class="flex space-between header mb">
-    <div>
-        <a href="{{ path('topic-all') }}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+    <div class="flex space-between gap">
+        <a href="{{ path('topic-all') }}" class="header-button">
             Accueil
         </a>
         {% if app.user %}
-                <a href="{{ path('topic-create') }}" class="btn btn-outline-danger me-2">Nouveau</a>
-                <a href="{{ path('self-info') }}" class="btn btn-outline-danger me-2">Mon profil</a>
+                <a href="{{ path('topic-create') }}" class="header-button">Nouveau</a>
+                <a href="{{ path('self-info') }}" class="header-button">Mon profil</a>
         {% endif %}
     </div>
     
-    <div class="flex space-between gap">
-        <div class="flex gap">
-            <div><a href="{{ path('category-all') }}" class="nav-link px-2 text-secondary">Catégories</a></div>     
-        </div>
-
-        <div class="text-end">
-            {% if app.user %}
-                <a href="{{ path('auth-logout') }}" class="btn btn-outline-danger me-2">Déconnexion</a>
-            {% else %}
-                <a href="{{ path('auth-signin') }}" class="btn btn-outline-primary me-2">S'inscrire</a>
-                <a href="{{ path('auth-login') }}" class="btn btn-outline-light me-2">Se connecter</a>
+    <div class="flex space-between gap">  
+        {% if app.user %}
+            <a href="{{ path('category-all') }}" class="header-button">Catégories</a>     
+            {% if 'ROLE_ADMINISTRATOR' in app.user.roles %}
+                <a href="{{ path('admin-users') }}" class="header-button">Gestion</a>
             {% endif %}
-        </div>
+            <a href="{{ path('auth-logout') }}" class="header-button">Déconnexion</a>
+        {% else %}
+            <a href="{{ path('auth-signin') }}" class="header-button">S'inscrire</a>
+            <a href="{{ path('auth-login') }}" class="header-button">Se connecter</a>
+        {% endif %}
     </div>
 </header>
