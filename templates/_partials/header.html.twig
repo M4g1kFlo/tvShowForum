@@ -10,12 +10,12 @@
     </div>
     
     <div class="flex space-between gap">  
+        <a href="{{ path('category-all') }}" class="header-button">Catégories</a>     
         {% if app.user %}
-            <a href="{{ path('category-all') }}" class="header-button">Catégories</a>     
             {% if 'ROLE_ADMINISTRATOR' in app.user.roles %}
                 <a href="{{ path('admin-users') }}" class="header-button">Gestion</a>
             {% endif %}
-            <a href="{{ path('auth-logout') }}" class="header-button">Déconnexion</a>
+        <a href="{{ path('auth-logout') }}" class="header-button">Déconnexion</a>
         {% else %}
             <a href="{{ path('auth-signin') }}" class="header-button">S'inscrire</a>
             <a href="{{ path('auth-login') }}" class="header-button">Se connecter</a>

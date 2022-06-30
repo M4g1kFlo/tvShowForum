@@ -2,7 +2,7 @@
     <div class="card-comment">
     <div class="flex space-between mb">
         <div>{{comment.content}}</div>
-        {% if 'ROLE_ADMINISTRATOR' in app.user.roles %}
+        {% if app.user and 'ROLE_ADMINISTRATOR' in app.user.roles %}
             <a href="{{ path('topic-comment-close', {id: comment.id}) }}">Supprimer</a>
         {% endif %}
     </div>

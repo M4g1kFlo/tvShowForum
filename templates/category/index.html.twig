@@ -6,7 +6,7 @@
     <h1>Catégories</h1>
     <h2>Elles sont toutes là</h2>
 
-    {% if 'ROLE_ADMINISTRATOR' in app.user.roles %}
+    {% if app.user and 'ROLE_ADMINISTRATOR' in app.user.roles %}
         <a href="{{ path('category-add') }}" class="">
             Nouveaux
         </a>

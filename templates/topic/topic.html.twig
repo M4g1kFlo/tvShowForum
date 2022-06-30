@@ -9,7 +9,7 @@
             {{topic.content}}
         </p>
     
-    {% if app.user.pseudo == topic.author.pseudo and topic.isClosed == false %}
+    {% if app.user and app.user.pseudo == topic.author.pseudo and topic.isClosed == false %}
         <a href="{{ path('topic-close', {slug: topic.slug}) }}" class="">
             Fermer le topic
         </a>
