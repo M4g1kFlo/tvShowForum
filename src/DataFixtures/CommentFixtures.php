@@ -50,6 +50,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
         $comment->setContent($this->faker->realText());
         $comment->setDate($date);
         $comment->setTopic($post);
+        $comment->setHidden(false);
 
         $manager->persist($comment);
         return $comment;

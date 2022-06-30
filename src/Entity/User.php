@@ -57,9 +57,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Comment::class)]
     private $comments;
 
-    #[ORM\Column(type: 'boolean')]
-    private $closed;
-
     public function __construct()
     {
         $this->topics = new ArrayCollection();

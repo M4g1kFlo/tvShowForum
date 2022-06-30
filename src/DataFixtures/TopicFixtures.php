@@ -43,7 +43,8 @@ class TopicFixtures extends Fixture implements DependentFixtureInterface
                 ->setPubished_Date($this->faker->dateTime())
                 ->setContent($this->faker->realText(1000))
                 ->setCategory($randomCategory)
-                ->setAuthor($randomUser);
+                ->setAuthor($randomUser)
+                ->setClosed(false);
 
             $manager->persist($post);
             $this->setReference('post-' . $a, $post);
