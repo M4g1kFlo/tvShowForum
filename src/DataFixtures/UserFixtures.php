@@ -29,11 +29,13 @@ class UserFixtures extends Fixture
             $this->createUser($manager);
         }
         $this->createUser($manager, [
-            'email' => 'florian.champie@gmail.com',
-            'firstname' => 'Florian',
-            'lastname' => 'Champie',
-            'password' => 'flocha',
+            'pseudo' => 'admin',
+            'password' => 'admin1',
             'roles' => ['ROLE_AUTHOR', 'ROLE_ADMINISTRATOR'],
+        ]);
+        $this->createUser($manager, [
+            'pseudo' => 'user1',
+            'password' => 'user12',
         ]);
 
         $manager->flush();

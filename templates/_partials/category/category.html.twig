@@ -3,7 +3,7 @@
         {{category.title}} : {{category.posts|length}} topics.
     </a>
     {% if app.user and 'ROLE_ADMINISTRATOR' in app.user.roles %}
-        <a href="{{ path('category-edit', {slug: category.slug}) }}" class="">
+        <a class="user-button blue" href="{{ path('category-edit', {slug: category.slug}) }}" class="">
             Modifier
         </a>
     {% endif %}
