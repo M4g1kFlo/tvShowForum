@@ -6,7 +6,7 @@ You will need to install [docker and docker-compose](https://docs.docker.com/eng
 
 To install the projet follow these commands :
 ```bash
-git@github.com:M4g1kFlo/tvShowForum.git
+git clone git@github.com:M4g1kFlo/tvShowForum.git
 ```
 ```bash
 cd tvShowForum
