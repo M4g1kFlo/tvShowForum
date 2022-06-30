@@ -1,10 +1,10 @@
-# Forum
+# TV show forum
 
 ## Installation
 
-You will need to install [docker and docker-compose](https://docs.docker.com/engine/install/ubuntu/) to install TV how forum.
+You will need to install [docker and docker-compose](https://docs.docker.com/engine/install/ubuntu/) to install TV show forum.
 
-To install the projet follow command between :
+To install the projet follow these commands :
 ```bash
 git@github.com:M4g1kFlo/tvShowForum.git
 ```
