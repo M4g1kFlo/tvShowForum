@@ -33,6 +33,13 @@ Now you need to create the database :
     ```bash
     docker-compose run --rm symfony console doctrine:fixtures:load
     ```
+- Render the CSS
+    ```bash
+    npm i
+    ```
+    ```bash
+    npm run watch
+    ```
 
 
 - Now you can go to http://localhost:8000/, it's working !
